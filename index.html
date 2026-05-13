@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calicut Watch House — Since 1990</title>
+  <meta name="description" content="Calicut Watch House — Precision. Heritage. Trust. Authorized watch dealers and master repair specialists in Kozhikode, Kerala since 1990." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- GRAIN OVERLAY -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- ═══════════════════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="nav__left">
+      <a href="#" class="nav__wordmark">
+        <span class="nav__wm-top">Calicut</span>
+        <span class="nav__wm-bottom">Watch House</span>
+      </a>
+    </div>
+    <div class="nav__center">
+      <span class="nav__est">Est. 1990 · Kozhikode</span>
+    </div>
+    <div class="nav__right">
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#history">Heritage</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#products">Collection</a></li>
+        <li><a href="#contact" class="nav__contact-link">Contact</a></li>
+      </ul>
+      <button class="nav__burger" id="navBurger" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__inner">
+      <ul>
+        <li><a href="#history" class="mm-link">Heritage</a></li>
+        <li><a href="#team" class="mm-link">Team</a></li>
+        <li><a href="#services" class="mm-link">Services</a></li>
+        <li><a href="#products" class="mm-link">Collection</a></li>
+        <li><a href="#contact" class="mm-link">Contact</a></li>
+      </ul>
+      <div class="mobile-menu__foot">
+        <a href="tel:9249500300">+91 92495 00300</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════════ -->
+  <section class="hero" id="home">
+    <div class="hero__media">
+      <img src="images/hero-bg.jpg" alt="" class="hero__img" onerror="this.parentElement.classList.add('no-img')" />
+      <div class="hero__vignette"></div>
+    </div>
+
+    <!-- animated clock SVG as fallback / decorative -->
+    <div class="hero__clock-deco" aria-hidden="true">
+      <svg class="clock-svg" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="150" cy="150" r="148" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <circle cx="150" cy="150" r="120" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+        <circle cx="150" cy="150" r="90"  stroke="rgba(255,255,255,0.04)" stroke-width="0.5" stroke-dasharray="3 6"/>
+        <!-- Hour markers -->
+        <line x1="150" y1="4"   x2="150" y2="22"  stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+        <line x1="150" y1="278" x2="150" y2="296" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+        <line x1="4"   y1="150" x2="22"  y2="150" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+        <line x1="278" y1="150" x2="296" y2="150" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+        <!-- Minor markers -->
+        <line x1="227" y1="19"  x2="219" y2="33"  stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+        <line x1="281" y1="73"  x2="267" y2="81"  stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+        <line x1="281" y1="227" x2="267" y2="219" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+        <line x1="227" y1="281" x2="219" y2="267" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+        <line x1="73"  y1="281" x2="81"  y2="267" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+        <line x1="19"  y1="227" x2="33"  y2="219" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+        <line x1="19"  y1="73"  x2="33"  y2="81"  stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+        <line x1="73"  y1="19"  x2="81"  y2="33"  stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+        <!-- Hour hand -->
+        <line class="clock-hour" x1="150" y1="150" x2="150" y2="80" stroke="rgba(255,255,255,0.8)" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Minute hand -->
+        <line class="clock-minute" x1="150" y1="150" x2="150" y2="50" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Second hand -->
+        <line class="clock-second" x1="150" y1="165" x2="150" y2="38" stroke="#d32f2f" stroke-width="1" stroke-linecap="round"/>
+        <!-- Center -->
+        <circle cx="150" cy="150" r="4" fill="#d32f2f"/>
+        <circle cx="150" cy="150" r="2" fill="rgba(255,255,255,0.9)"/>
+      </svg>
+    </div>
+
+    <div class="hero__content">
+      <div class="hero__eyebrow reveal-hero">
+        <span class="hr-line"></span>
+        <span>Kozhikode &nbsp;·&nbsp; Kerala</span>
+        <span class="hr-line"></span>
+      </div>
+      <h1 class="hero__h1 reveal-hero" style="--d:.1s">
+        Trusted Watch<br />
+        <em>Store in</em><br />
+        Kozhikode
+        <span class="hero__since">Since 1990</span>
+      </h1>
+      <p class="hero__sub reveal-hero" style="--d:.3s">
+        Sales &nbsp;·&nbsp; Service &nbsp;·&nbsp; Repair<br />
+        for All Types of Watches &amp; Clocks
+      </p>
+      <div class="hero__ctas reveal-hero" style="--d:.45s">
+        <a href="tel:9249500300" class="btn btn--ghost-light">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.18A16 16 0 0015.06 16.33l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Call Now
+        </a>
+        <a href="https://maps.google.com/?q=Calicut+Watch+House+Eranhipalam+Kozhikode" target="_blank" rel="noopener" class="btn btn--ghost-light">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Get Directions
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__scroll reveal-hero" style="--d:.6s">
+      <div class="hero__scroll-track">
+        <div class="hero__scroll-thumb"></div>
+      </div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       TICKER
+  ═══════════════════════════════════════════════════ -->
+  <div class="ticker-bar" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Precision</span><span class="ticker-dot">◆</span>
+      <span>Heritage</span><span class="ticker-dot">◆</span>
+      <span>Craftsmanship</span><span class="ticker-dot">◆</span>
+      <span>Trust</span><span class="ticker-dot">◆</span>
+      <span>Since 1990</span><span class="ticker-dot">◆</span>
+      <span>Kozhikode</span><span class="ticker-dot">◆</span>
+      <span>Precision</span><span class="ticker-dot">◆</span>
+      <span>Heritage</span><span class="ticker-dot">◆</span>
+      <span>Craftsmanship</span><span class="ticker-dot">◆</span>
+      <span>Trust</span><span class="ticker-dot">◆</span>
+      <span>Since 1990</span><span class="ticker-dot">◆</span>
+      <span>Kozhikode</span><span class="ticker-dot">◆</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════
+       MAIN VIDEO
+  ═══════════════════════════════════════════════════ -->
+  <section class="main-video" id="video">
+    <div class="main-video__wrap">
+      <video
+        class="main-video__el"
+        src="videos/watch.mp4"
+        autoplay muted loop playsinline
+        poster="images/video-poster.jpg">
+      </video>
+      <div class="main-video__overlay"></div>
+      <div class="main-video__fallback" aria-hidden="true">
+        <div class="mv-fallback-inner">
+          <div class="mv-ring mv-ring--1"></div>
+          <div class="mv-ring mv-ring--2"></div>
+          <div class="mv-ring mv-ring--3"></div>
+          <div class="mv-center-text">CWH</div>
+        </div>
+      </div>
+    </div>
+    <div class="main-video__text container">
+      <div class="main-video__text-inner js-reveal">
+        <span class="eyebrow eyebrow--light">Craftsmanship</span>
+        <h2 class="display-heading display-heading--light">
+          Precision in<br /><em>Every Detail</em>
+        </h2>
+        <p class="body-text body-text--muted">
+          Craftsmanship, expertise, and decades of experience<br />in every watch we handle.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       HISTORY
+  ═══════════════════════════════════════════════════ -->
+  <section class="history light-section" id="history">
+    <div class="container">
+      <div class="section-header js-reveal">
+        <span class="eyebrow">Heritage</span>
+        <h2 class="display-heading">Our <em>History</em></h2>
+      </div>
+      <div class="history__layout">
+        <div class="history__large-year js-reveal">
+          <span>1990</span>
+        </div>
+        <div class="history__timeline">
+          <div class="h-event js-reveal">
+            <div class="h-event__marker">
+              <span class="h-event__year">1990</span>
+              <div class="h-event__line"></div>
+            </div>
+            <div class="h-event__body">
+              <h3>The Beginning</h3>
+              <p>Calicut Watch House began as a Regional Stockist of Titan Watches, serving North Kerala — Palakkad, Thrissur, Malappuram, Kozhikode, Wayanad, Kannur, and Kasargod.</p>
+            </div>
+          </div>
+          <div class="h-event js-reveal" style="--rd:.1s">
+            <div class="h-event__marker">
+              <span class="h-event__year">2017</span>
+              <div class="h-event__line"></div>
+            </div>
+            <div class="h-event__body">
+              <h3>The Showroom</h3>
+              <p>A multi-brand watch and clock showroom was established at SM Street, Court Road — a milestone that marked the brand's evolution into retail and professional service.</p>
+            </div>
+          </div>
+          <div class="h-event js-reveal" style="--rd:.2s">
+            <div class="h-event__marker">
+              <span class="h-event__year">Today</span>
+              <div class="h-event__line"></div>
+            </div>
+            <div class="h-event__body">
+              <h3>Eranhipalam</h3>
+              <p>Now located at Wayanad Road, Eranhipalam, Kozhikode. Serving customers across the region with trust, expertise, and the same founding commitment to quality.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       TEAM
+  ═══════════════════════════════════════════════════ -->
+  <section class="team dark-section" id="team">
+    <div class="container">
+      <div class="section-header js-reveal">
+        <span class="eyebrow eyebrow--light">The People</span>
+        <h2 class="display-heading display-heading--light">Our <em>Team</em></h2>
+        <p class="body-text body-text--muted" style="max-width:520px;margin-inline:auto;margin-top:1rem;">
+          36 years of expertise. Adapting to every era while holding firm to craftsmanship and customer trust.
+        </p>
+      </div>
+
+      <div class="team__grid">
+        <div class="team-block js-reveal">
+          <div class="team-block__num">01</div>
+          <h3>Sales Professionals</h3>
+          <p>Expert guidance across our full portfolio — helping every customer find their perfect timepiece from brands including Titan, Casio, Seiko, and more.</p>
+        </div>
+        <div class="team-block js-reveal" style="--rd:.12s">
+          <div class="team-block__num">02</div>
+          <h3>Master Technicians</h3>
+          <p>Specialists in polishing, glass, mechanical work, welding, drilling, and Swiss movement repair. Complex restorations are our specialty.</p>
+        </div>
+        <div class="team-block js-reveal" style="--rd:.24s">
+          <div class="team-block__num">03</div>
+          <h3>Clock Specialists</h3>
+          <p>Experts for large building clocks, double-sided station clocks, Wi-Fi clocks, digital clocks, and Azan clocks — custom solutions for public and institutional spaces.</p>
+        </div>
+      </div>
+
+      <div class="brands-ribbon js-reveal">
+        <div class="brands-ribbon__label">Authorized Dealers</div>
+        <div class="brands-ribbon__items">
+          <span>Titan</span>
+          <span>Timex</span>
+          <span>Fastrack</span>
+          <span>Sonata</span>
+          <span>Casio</span>
+          <span>Ajanta</span>
+          <span>Sage</span>
+          <span>Seiko</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       SERVICES (with secondary video)
+  ═══════════════════════════════════════════════════ -->
+  <section class="services light-section" id="services">
+    <div class="container">
+      <div class="section-header js-reveal">
+        <span class="eyebrow">Expertise</span>
+        <h2 class="display-heading">Our <em>Services</em></h2>
+      </div>
+      <div class="services__layout">
+        <div class="services__left">
+          <div class="svc js-reveal">
+            <span class="svc__n">01</span>
+            <div class="svc__body">
+              <h3>Watch Repair</h3>
+              <p>All brands. From everyday quartz to rare mechanical movements — handled with precision tools and trained hands.</p>
+            </div>
+          </div>
+          <div class="svc js-reveal" style="--rd:.08s">
+            <span class="svc__n">02</span>
+            <div class="svc__body">
+              <h3>Clock Restoration</h3>
+              <p>Vintage and modern clocks — wall, station, pendulum. We take up the challenging works others won't.</p>
+            </div>
+          </div>
+          <div class="svc js-reveal" style="--rd:.16s">
+            <span class="svc__n">03</span>
+            <div class="svc__body">
+              <h3>Battery &amp; Glass</h3>
+              <p>Rapid battery replacement and crystal glass fitting. Same-day service for most models.</p>
+            </div>
+          </div>
+          <div class="svc js-reveal" style="--rd:.24s">
+            <span class="svc__n">04</span>
+            <div class="svc__body">
+              <h3>Courier Repair</h3>
+              <p>Customers across India send watches via DTDC. We repair and return safely. Trusted by clients nationwide.</p>
+            </div>
+          </div>
+          <div class="svc js-reveal" style="--rd:.32s">
+            <span class="svc__n">05</span>
+            <div class="svc__body">
+              <h3>Swiss Movement</h3>
+              <p>Specialized expertise in Swiss movement servicing — a rare skill offered by very few shops in Kerala.</p>
+            </div>
+          </div>
+        </div>
+        <div class="services__right js-reveal" style="--rd:.15s">
+          <div class="services__video-wrap">
+            <video
+              src="videos/service.mp4"
+              autoplay muted loop playsinline
+              poster="images/services-poster.jpg"
+              class="services__video">
+            </video>
+            <div class="services__video-fallback" aria-hidden="true">
+              <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Gear 1 -->
+                <g class="gear-anim-1" transform-origin="80 80">
+                  <circle cx="80" cy="80" r="28" stroke="rgba(211,47,47,0.6)" stroke-width="1.5"/>
+                  <circle cx="80" cy="80" r="20" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                  <circle cx="80" cy="80" r="6" fill="rgba(211,47,47,0.4)"/>
+                  <line x1="80" y1="48" x2="80" y2="40" stroke="rgba(255,255,255,0.5)" stroke-width="3" stroke-linecap="round"/>
+                  <line x1="80" y1="120" x2="80" y2="112" stroke="rgba(255,255,255,0.5)" stroke-width="3" stroke-linecap="round"/>
+                  <line x1="48" y1="80" x2="40" y2="80" stroke="rgba(255,255,255,0.5)" stroke-width="3" stroke-linecap="round"/>
+                  <line x1="120" y1="80" x2="112" y2="80" stroke="rgba(255,255,255,0.5)" stroke-width="3" stroke-linecap="round"/>
+                  <line x1="57" y1="57" x2="51" y2="51" stroke="rgba(255,255,255,0.4)" stroke-width="2.5" stroke-linecap="round"/>
+                  <line x1="109" y1="57" x2="115" y2="51" stroke="rgba(255,255,255,0.4)" stroke-width="2.5" stroke-linecap="round"/>
+                  <line x1="57" y1="103" x2="51" y2="109" stroke="rgba(255,255,255,0.4)" stroke-width="2.5" stroke-linecap="round"/>
+                  <line x1="103" y1="103" x2="109" y2="109" stroke="rgba(255,255,255,0.4)" stroke-width="2.5" stroke-linecap="round"/>
+                </g>
+                <!-- Gear 2 -->
+                <g class="gear-anim-2" transform-origin="130 120">
+                  <circle cx="130" cy="120" r="20" stroke="rgba(255,255,255,0.2)" stroke-width="1.2"/>
+                  <circle cx="130" cy="120" r="13" stroke="rgba(211,47,47,0.3)" stroke-width="1"/>
+                  <circle cx="130" cy="120" r="4" fill="rgba(255,255,255,0.3)"/>
+                  <line x1="130" y1="96" x2="130" y2="90" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round"/>
+                  <line x1="130" y1="150" x2="130" y2="144" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round"/>
+                  <line x1="106" y1="120" x2="100" y2="120" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round"/>
+                  <line x1="160" y1="120" x2="154" y2="120" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round"/>
+                </g>
+              </svg>
+            </div>
+            <div class="services__video-label">Workshop</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       PRODUCTS
+  ═══════════════════════════════════════════════════ -->
+  <section class="products dark-section" id="products">
+    <div class="container">
+      <div class="section-header js-reveal">
+        <span class="eyebrow eyebrow--light">Collection</span>
+        <h2 class="display-heading display-heading--light">Our <em>Products</em></h2>
+      </div>
+      <div class="products__grid">
+        <div class="prod-card js-reveal">
+          <div class="prod-card__media">
+            <div class="prod-card__icon-wrap">
+              <svg viewBox="0 0 80 80" fill="none"><rect x="26" y="10" width="28" height="60" rx="7" stroke="rgba(211,47,47,0.7)" stroke-width="1.2"/><circle cx="40" cy="40" r="10" stroke="rgba(255,255,255,0.5)" stroke-width="1"/><line x1="40" y1="33" x2="40" y2="40" stroke="rgba(255,255,255,0.7)" stroke-width="1.2" stroke-linecap="round"/><line x1="40" y1="40" x2="46" y2="40" stroke="rgba(255,255,255,0.7)" stroke-width="1" stroke-linecap="round"/><line x1="17" y1="24" x2="26" y2="27" stroke="rgba(211,47,47,0.5)" stroke-width="1.2"/><line x1="17" y1="56" x2="26" y2="53" stroke="rgba(211,47,47,0.5)" stroke-width="1.2"/></svg>
+            </div>
+          </div>
+          <div class="prod-card__body">
+            <h3>Men's Watches</h3>
+            <p>Chronographs, sports, dress, and everyday — curated from India's most trusted brands.</p>
+          </div>
+        </div>
+        <div class="prod-card js-reveal" style="--rd:.08s">
+          <div class="prod-card__media">
+            <div class="prod-card__icon-wrap">
+              <svg viewBox="0 0 80 80" fill="none"><rect x="28" y="14" width="24" height="52" rx="6" stroke="rgba(211,47,47,0.7)" stroke-width="1.2"/><circle cx="40" cy="40" r="9" stroke="rgba(255,255,255,0.5)" stroke-width="1"/><line x1="40" y1="34" x2="40" y2="40" stroke="rgba(255,255,255,0.7)" stroke-width="1.2" stroke-linecap="round"/><line x1="40" y1="40" x2="45" y2="40" stroke="rgba(255,255,255,0.7)" stroke-width="1" stroke-linecap="round"/><path d="M28 28c-5-2-7 5-4 7" stroke="rgba(211,47,47,0.4)" stroke-width="1" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+          <div class="prod-card__body">
+            <h3>Women's Watches</h3>
+            <p>Elegant, slim, and contemporary — designed for every occasion and every style.</p>
+          </div>
+        </div>
+        <div class="prod-card js-reveal" style="--rd:.16s">
+          <div class="prod-card__media">
+            <div class="prod-card__icon-wrap">
+              <svg viewBox="0 0 80 80" fill="none"><rect x="14" y="14" width="52" height="52" rx="4" stroke="rgba(211,47,47,0.7)" stroke-width="1.2"/><circle cx="40" cy="40" r="16" stroke="rgba(255,255,255,0.5)" stroke-width="1"/><line x1="40" y1="26" x2="40" y2="40" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round"/><line x1="40" y1="40" x2="51" y2="40" stroke="rgba(255,255,255,0.7)" stroke-width="1.2" stroke-linecap="round"/><circle cx="40" cy="40" r="2" fill="rgba(211,47,47,0.8)"/></svg>
+            </div>
+          </div>
+          <div class="prod-card__body">
+            <h3>Wall Clocks</h3>
+            <p>Decorative and functional — for homes, offices, and institutions. Every size and finish.</p>
+          </div>
+        </div>
+        <div class="prod-card js-reveal" style="--rd:.24s">
+          <div class="prod-card__media">
+            <div class="prod-card__icon-wrap">
+              <svg viewBox="0 0 80 80" fill="none"><rect x="8" y="12" width="64" height="56" rx="3" stroke="rgba(211,47,47,0.7)" stroke-width="1.2"/><circle cx="40" cy="40" r="18" stroke="rgba(255,255,255,0.5)" stroke-width="1"/><line x1="40" y1="24" x2="40" y2="40" stroke="rgba(255,255,255,0.8)" stroke-width="2" stroke-linecap="round"/><line x1="40" y1="40" x2="54" y2="44" stroke="rgba(255,255,255,0.7)" stroke-width="1.2" stroke-linecap="round"/><circle cx="40" cy="40" r="2.5" fill="rgba(211,47,47,0.9)"/></svg>
+            </div>
+          </div>
+          <div class="prod-card__body">
+            <h3>Station Clocks</h3>
+            <p>Double-sided precision clocks for public spaces, institutions, and large commercial buildings.</p>
+          </div>
+        </div>
+        <div class="prod-card js-reveal" style="--rd:.32s">
+          <div class="prod-card__media">
+            <div class="prod-card__icon-wrap">
+              <svg viewBox="0 0 80 80" fill="none"><rect x="14" y="20" width="52" height="40" rx="5" stroke="rgba(211,47,47,0.7)" stroke-width="1.2"/><path d="M26 36h28M26 44h16" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" stroke-linecap="round"/><path d="M6 30c4-4 7-3 8-2M74 30c-4-4-7-3-8-2" stroke="rgba(211,47,47,0.4)" stroke-width="1" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+          <div class="prod-card__body">
+            <h3>Wi-Fi Clocks</h3>
+            <p>Smart, auto-synced — ideal for modern offices, schools, hospitals, and public buildings.</p>
+          </div>
+        </div>
+        <div class="prod-card js-reveal" style="--rd:.4s">
+          <div class="prod-card__media">
+            <div class="prod-card__icon-wrap">
+              <svg viewBox="0 0 80 80" fill="none"><rect x="6" y="16" width="68" height="48" rx="4" stroke="rgba(211,47,47,0.7)" stroke-width="1.2"/><circle cx="40" cy="40" r="17" stroke="rgba(255,255,255,0.5)" stroke-width="1"/><line x1="40" y1="25" x2="40" y2="40" stroke="rgba(255,255,255,0.8)" stroke-width="2.5" stroke-linecap="round"/><line x1="40" y1="40" x2="53" y2="47" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round"/><circle cx="40" cy="40" r="2.5" fill="rgba(211,47,47,1)"/></svg>
+            </div>
+          </div>
+          <div class="prod-card__body">
+            <h3>Customized Clocks</h3>
+            <p>Large-scale clocks for building facades and public spaces. Designed to your exact specification.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       CONTACT
+  ═══════════════════════════════════════════════════ -->
+  <section class="contact light-section" id="contact">
+    <div class="container contact__grid">
+      <div class="contact__info js-reveal">
+        <span class="eyebrow">Reach Us</span>
+        <h2 class="display-heading">Contact <em>Us</em></h2>
+
+        <div class="contact__items">
+          <div class="ci">
+            <div class="ci__label">Location</div>
+            <div class="ci__value">Wayanad Road, Eranhipalam<br />Kozhikode, Kerala</div>
+          </div>
+          <div class="ci">
+            <div class="ci__label">Phone</div>
+            <div class="ci__value">+91 92495 00300</div>
+          </div>
+          <div class="ci">
+            <div class="ci__label">Hours</div>
+            <div class="ci__value">Mon – Sat: 10:00 – 20:00<br />Sunday: 11:00 – 18:00</div>
+          </div>
+        </div>
+
+        <div class="contact__ctas">
+          <a href="tel:9249500300" class="btn btn--dark">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.18A16 16 0 0015.06 16.33l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            Call Now
+          </a>
+          <a href="https://wa.me/919249500300" target="_blank" rel="noopener" class="btn btn--whatsapp">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2.003C6.476 2.003 2 6.479 2 12.007c0 1.762.461 3.518 1.338 5.053L2.05 21.997l5.087-1.265A10.04 10.04 0 0012.004 22c5.528 0 10.003-4.476 10.003-10.003 0-5.528-4.475-10.003-10.003-9.994zm0 18.35a8.353 8.353 0 01-4.249-1.157l-.305-.18-3.16.787.8-2.927-.2-.301A8.35 8.35 0 013.646 12c0-4.614 3.745-8.359 8.359-8.359s8.359 3.745 8.359 8.359-3.745 8.353-8.36 8.353z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+
+        <div class="contact__map js-reveal" style="--rd:.1s">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3912.3!2d75.788!3d11.257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDE1JzI1LjIiTiA3NcKwNDcnMTYuOCJF!5e0!3m2!1sen!2sin!4v1234567890"
+            width="100%"
+            height="240"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Calicut Watch House Map">
+          </iframe>
+        </div>
+      </div>
+
+      <div class="contact__form-col js-reveal" style="--rd:.15s">
+        <form class="contact__form" id="contactForm" novalidate>
+          <div class="cf-header">
+            <h3>Send a Message</h3>
+            <p>We respond within a few hours.</p>
+          </div>
+          <div class="cf-field">
+            <input type="text" name="name" id="cf-name" placeholder=" " required autocomplete="name" />
+            <label for="cf-name">Your Name</label>
+          </div>
+          <div class="cf-field">
+            <input type="tel" name="phone" id="cf-phone" placeholder=" " required autocomplete="tel" />
+            <label for="cf-phone">Phone Number</label>
+          </div>
+          <div class="cf-field">
+            <textarea name="message" id="cf-message" rows="4" placeholder=" " required></textarea>
+            <label for="cf-message">Your Message</label>
+          </div>
+          <button type="submit" class="btn btn--dark btn--full cf-submit">
+            <span class="cf-submit-text">Send Message</span>
+            <svg class="cf-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="footer__wm">
+            <span>Calicut</span>
+            <span>Watch House</span>
+          </div>
+          <p>Wayanad Road, Eranhipalam, Kozhikode<br />Kerala, India</p>
+        </div>
+        <div class="footer__nav">
+          <a href="#history">Heritage</a>
+          <a href="#team">Team</a>
+          <a href="#services">Services</a>
+          <a href="#products">Collection</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer__contact">
+          <a href="tel:9249500300">+91 92495 00300</a>
+          <a href="https://wa.me/919249500300" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__rule"></span>
+        <div class="footer__copy">
+          <span>© 2025 Calicut Watch House</span>
+          <span>Est. 1990 · Kozhikode, Kerala</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (() => {
+    // ── Custom cursor ──────────────────────────────────────
+    const cur  = document.getElementById('cursor');
+    const dot  = document.getElementById('cursorDot');
+    let mx = 0, my = 0, cx = 0, cy = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    function animCursor() {
+      cx += (mx - cx) * 0.12;
+      cy += (my - cy) * 0.12;
+      if (cur) { cur.style.transform = `translate(${cx}px,${cy}px) translate(-50%,-50%)`; }
+      if (dot) { dot.style.transform = `translate(${mx}px,${my}px) translate(-50%,-50%)`; }
+      requestAnimationFrame(animCursor);
+    }
+    animCursor();
+    document.querySelectorAll('a,button,input,textarea').forEach(el => {
+      el.addEventListener('mouseenter', () => cur?.classList.add('cursor--hover'));
+      el.addEventListener('mouseleave', () => cur?.classList.remove('cursor--hover'));
+    });
+
+    // ── Nav scroll state ──────────────────────────────────
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('nav--scrolled', window.scrollY > 80);
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // ── Mobile menu ───────────────────────────────────────
+    const burger = document.getElementById('navBurger');
+    const mmenu  = document.getElementById('mobileMenu');
+    burger?.addEventListener('click', () => {
+      burger.classList.toggle('open');
+      mmenu.classList.toggle('open');
+      document.body.classList.toggle('no-scroll');
+    });
+    document.querySelectorAll('.mm-link').forEach(l => {
+      l.addEventListener('click', () => {
+        burger.classList.remove('open');
+        mmenu.classList.remove('open');
+        document.body.classList.remove('no-scroll');
+      });
+    });
+
+    // ── Hero animations ───────────────────────────────────
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.reveal-hero').forEach((el, i) => {
+        const delay = parseFloat(el.style.getPropertyValue('--d') || 0) * 1000;
+        setTimeout(() => el.classList.add('revealed'), delay + 200);
+      });
+    });
+
+    // ── Live clock hands ──────────────────────────────────
+    function updateClock() {
+      const now = new Date();
+      const h = now.getHours() % 12 + now.getMinutes() / 60;
+      const m = now.getMinutes() + now.getSeconds() / 60;
+      const s = now.getSeconds();
+      const hDeg = h * 30;
+      const mDeg = m * 6;
+      const sDeg = s * 6;
+      const hour   = document.querySelector('.clock-hour');
+      const minute = document.querySelector('.clock-minute');
+      const second = document.querySelector('.clock-second');
+      if (!hour) return;
+      // rotate hands around center (150, 150)
+      hour.setAttribute('transform',   `rotate(${hDeg}, 150, 150)`);
+      minute.setAttribute('transform', `rotate(${mDeg}, 150, 150)`);
+      second.setAttribute('transform', `rotate(${sDeg}, 150, 150)`);
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    // ── Scroll reveal ─────────────────────────────────────
+    const revObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const delay = parseFloat(e.target.style.getPropertyValue('--rd') || 0) * 1000;
+          setTimeout(() => e.target.classList.add('in-view'), delay);
+          revObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.js-reveal').forEach(el => revObs.observe(el));
+
+    // ── Main video parallax + fallback ────────────────────
+    const mvVideo = document.querySelector('.main-video__el');
+    if (mvVideo) {
+      mvVideo.addEventListener('error', () => {
+        mvVideo.style.display = 'none';
+        document.querySelector('.main-video__fallback')?.classList.add('active');
+      });
+    }
+
+    // ── Services video fallback ───────────────────────────
+    const svcVideo = document.querySelector('.services__video');
+    if (svcVideo) {
+      svcVideo.addEventListener('error', () => {
+        svcVideo.style.display = 'none';
+        document.querySelector('.services__video-fallback')?.classList.add('active');
+      });
+    }
+
+    // ── Contact form ──────────────────────────────────────
+    const form = document.getElementById('contactForm');
+    form?.addEventListener('submit', e => {
+      e.preventDefault();
+      const btn  = form.querySelector('.cf-submit');
+      const text = form.querySelector('.cf-submit-text');
+      btn.disabled = true;
+      text.textContent = 'Sent ✓';
+      btn.style.background = '#1b5e20';
+      setTimeout(() => {
+        text.textContent = 'Send Message';
+        btn.style.background = '';
+        btn.disabled = false;
+        form.reset();
+      }, 3500);
+    });
+
+    // ── Video slow zoom ───────────────────────────────────
+    const mvWrap = document.querySelector('.main-video__el');
+    if (mvWrap) {
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            const rect = mvWrap.getBoundingClientRect();
+            const progress = -rect.top / (window.innerHeight * 0.5);
+            const scale = 1 + Math.max(0, Math.min(0.08, progress * 0.04));
+            mvWrap.style.transform = `scale(${scale})`;
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    }
+  })();
+  </script>
+</body>
+</html>
