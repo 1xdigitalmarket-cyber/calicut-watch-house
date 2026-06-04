@@ -330,7 +330,7 @@
         <div class="team-block js-reveal">
           <div class="team-block__num">01</div>
           <h3>Sales Team</h3>
-          <p>Our sales professionals guide every customer from inquiry to purchase — backed by a strong supplier network sourcing unique products including custom-built oversized clocks for building tops, roadside junctions, and landmark installations.</p>
+          <p>Our sales professionals guide every customer from inquiry to purchase — backed by a strong supplier network sourcing unique products including Customized big size Tower Clocks for outdoor buildings and round about on roads.</p>
         </div>
         <div class="team-block js-reveal" style="--rd:.12s">
           <div class="team-block__num">02</div>
@@ -386,7 +386,7 @@
             <span class="svc__n">02</span>
             <div class="svc__body">
               <h3>Clock Restoration</h3>
-              <p>Wall, station, pendulum, striking, digital, and Azan clocks — vintage or modern. Repairs others decline are our specialty.</p>
+              <p>Wall clock, 2 side station clock, pendulum clock, striking clock, digital clock, azan clock, cuckoo clock, mechanical clock, automatic clock, winding clock, repair and serivce available with us be it vintage or latest. We take up challenging work other shops hesitate to accept.</p>
             </div>
             <div class="svc__inline-img">
               <img src="images/clock-restoration.png" alt="Clock Restoration" />
@@ -426,7 +426,7 @@
             <span class="svc__n">06</span>
             <div class="svc__body">
               <h3>Watch Strap Restoration <span style="font-size:0.7em;color:var(--c-red);font-family:var(--f-sans);letter-spacing:.08em;font-weight:500;margin-left:.4em;">NEW</span></h3>
-              <p>We now restore old and rare watch straps — because some designs were discontinued long ago, leaving customers without a solution. Now they have one.</p>
+              <p>We now restore damaged and torn rare old used watch straps Because some straps are discontinued and unavailable leaving customer without a solution but now Calicut watch house have a option of old strap restoration</p>
             </div>
             <div class="svc__inline-img">
               <img src="images/watch-strap-restoration.png" alt="Strap Restoration" />
@@ -724,9 +724,24 @@
   ═══════════════════════════════════════════════════ -->
   <section class="contact light-section" id="contact">
     <div class="container">
-      <figure class="contact__storefront js-reveal">
-        <img src="images/shop-img.jpeg" alt="Calicut Watch House showroom storefront in Eranhipalam, Kozhikode" loading="lazy" />
-        <figcaption><span>Visit Us</span>Our showroom on Wayanad Road, Eranhipalam — Kozhikode.</figcaption>
+      <figure class="contact__storefront js-reveal" id="storefrontSlider">
+        <div class="sf-slider__track" id="sfTrack">
+          <div class="sf-slide">
+            <img src="images/shop-img.jpeg" alt="Calicut Watch House showroom storefront in Eranhipalam, Kozhikode" loading="lazy" />
+          </div>
+          <div class="sf-slide">
+            <img src="images/slider-img-2.jpeg" alt="Calicut Watch House at the Titan Dealers Meet" loading="lazy" />
+          </div>
+          <div class="sf-slide">
+            <img src="images/slider-img-3.jpeg" alt="Calicut Watch House at the Titan Dealers Meet, 1992" loading="lazy" />
+          </div>
+        </div>
+        <div class="sf-slider__dots" id="sfDots">
+          <button type="button" class="sf-dot active" aria-label="Show slide 1"></button>
+          <button type="button" class="sf-dot" aria-label="Show slide 2"></button>
+          <button type="button" class="sf-dot" aria-label="Show slide 3"></button>
+        </div>
+        <figcaption><span class="sf-cap-tag">Visit Us</span><span class="sf-cap-text">Our showroom on Wayanad Road, Eranhipalam — Kozhikode.</span></figcaption>
       </figure>
     </div>
     <div class="container contact__grid">
@@ -1064,6 +1079,91 @@
         isPaused = false;
       });
     }
+    // ── Storefront auto-slider (swipable) ─────────────────────
+    const sf = document.getElementById('storefrontSlider');
+    if (sf) {
+      const sfTrack = sf.querySelector('.sf-slider__track');
+      const sfSlides = sf.querySelectorAll('.sf-slide');
+      const sfDots = sf.querySelectorAll('.sf-dot');
+      const sfCount = sfSlides.length;
+      const SF_INTERVAL = 2000; // 2 seconds
+      let sfIndex = 0;
+      let sfTimer = null;
+
+      // Caption per slide — edit the tag/text here to match each image.
+      const sfCaptions = [
+        { tag: 'Visit Us',         text: 'Our showroom on Wayanad Road, Eranhipalam — Kozhikode.' },
+        { tag: 'Our Legacy',       text: 'Addressing the Titan Dealers Meet — relationships built to last.' },
+        { tag: "Dealers Meet '92", text: 'With Titan at the Dealers Meet, 1992.' },
+      ];
+      const sfCap     = sf.querySelector('figcaption');
+      const sfCapTag  = sf.querySelector('.sf-cap-tag');
+      const sfCapText = sf.querySelector('.sf-cap-text');
+
+      function sfSetCaption(i) {
+        const c = sfCaptions[i];
+        if (!c || !sfCap) return;
+        sfCap.classList.add('sf-cap--out');           // fade out
+        setTimeout(() => {
+          if (sfCapTag)  sfCapTag.textContent  = c.tag;
+          if (sfCapText) sfCapText.textContent = c.text;
+          sfCap.classList.remove('sf-cap--out');       // fade back in
+        }, 260);
+      }
+
+      function sfGoTo(i) {
+        sfIndex = (i + sfCount) % sfCount;
+        sfTrack.style.transform = `translateX(${-sfIndex * 100}%)`;
+        sfDots.forEach((d, di) => d.classList.toggle('active', di === sfIndex));
+        sfSetCaption(sfIndex);
+      }
+      function sfStart() { sfStop(); sfTimer = setInterval(() => sfGoTo(sfIndex + 1), SF_INTERVAL); }
+      function sfStop()  { if (sfTimer) { clearInterval(sfTimer); sfTimer = null; } }
+
+      // Pause auto-play while hovering (desktop)
+      sf.addEventListener('mouseenter', sfStop);
+      sf.addEventListener('mouseleave', sfStart);
+
+      // Dots
+      sfDots.forEach((d, di) => d.addEventListener('click', () => { sfGoTo(di); sfStart(); }));
+
+      // ── Swipe / drag handling (touch + mouse) ──
+      let sfDown = false, sfStartX = 0, sfDelta = 0;
+      const sfThreshold = () => sf.clientWidth * 0.15;
+
+      function sfDragStart(x) {
+        sfDown = true; sfStartX = x; sfDelta = 0;
+        sfStop();
+        sfTrack.style.transition = 'none';
+      }
+      function sfDragMove(x) {
+        if (!sfDown) return;
+        sfDelta = x - sfStartX;
+        sfTrack.style.transform = `translateX(calc(${-sfIndex * 100}% + ${sfDelta}px))`;
+      }
+      function sfDragEnd() {
+        if (!sfDown) return;
+        sfDown = false;
+        sfTrack.style.transition = '';
+        if (sfDelta < -sfThreshold())      sfGoTo(sfIndex + 1);
+        else if (sfDelta > sfThreshold())  sfGoTo(sfIndex - 1);
+        else                               sfGoTo(sfIndex);
+        sfStart();
+      }
+
+      // Touch
+      sfTrack.addEventListener('touchstart', e => sfDragStart(e.touches[0].clientX), { passive: true });
+      sfTrack.addEventListener('touchmove',  e => sfDragMove(e.touches[0].clientX),  { passive: true });
+      sfTrack.addEventListener('touchend', sfDragEnd);
+
+      // Mouse drag
+      sfTrack.addEventListener('mousedown', e => { e.preventDefault(); sfDragStart(e.clientX); });
+      window.addEventListener('mousemove', e => sfDragMove(e.clientX));
+      window.addEventListener('mouseup', sfDragEnd);
+
+      sfStart();
+    }
+
     const mvWrap = document.querySelector('.main-video__el');
     if (mvWrap) {
       let ticking = false;

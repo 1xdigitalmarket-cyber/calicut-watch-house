@@ -1673,3 +1673,70 @@ ul { list-style: none; }
   color: var(--red);
   margin-bottom: .6rem;
 }
+
+/* ── STOREFRONT SLIDER ─────────────────────────────────────── */
+.sf-slider__track {
+  display: flex;
+  width: 100%;
+  transform: translateX(0);
+  transition: transform .6s cubic-bezier(.4,0,.2,1);
+  touch-action: pan-y;       /* allow vertical page scroll, capture horizontal swipe */
+  cursor: grab;
+  will-change: transform;
+}
+.sf-slider__track:active { cursor: grabbing; }
+.sf-slide {
+  flex: 0 0 100%;
+  width: 100%;
+}
+/* slide images reuse the same sizing as the original storefront image
+   (defined by `.contact__storefront img`), so the look is unchanged */
+.sf-slide img { pointer-events: none; }
+
+/* progress dots */
+.sf-slider__dots {
+  position: absolute;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1.1rem, 3vw, 1.9rem);
+  z-index: 3;
+  display: flex;
+  gap: .55rem;
+}
+.sf-dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 1px solid rgba(255,255,255,.7);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: background .3s, transform .3s, border-color .3s;
+}
+.sf-dot:hover { border-color: #fff; }
+.sf-dot.active {
+  background: var(--red);
+  border-color: var(--red);
+  transform: scale(1.15);
+}
+
+/* per-slide caption: tag (small red label) + body text (serif) */
+.contact__storefront figcaption {
+  transition: opacity .3s ease, transform .3s ease;
+}
+.contact__storefront figcaption.sf-cap--out {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.contact__storefront figcaption .sf-cap-tag {
+  /* inherits the existing small uppercase red label style */
+}
+.contact__storefront figcaption .sf-cap-text {
+  display: block;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--cream);
+  margin: 0;
+}
